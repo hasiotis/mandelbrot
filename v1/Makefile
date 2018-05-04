@@ -2,7 +2,7 @@
 BINARY=mandelbrot
 
 # Build time info
-VERSION=`git describe --tags $(git rev-list --tags --max-count=1)`
+VERSION='1.0.0'
 BUILD=`git rev-parse HEAD`
 
 # Setup ldflags
