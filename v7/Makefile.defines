@@ -1,0 +1,4 @@
+# Build time info
+LASTTAG=$(shell git describe --tags $(shell git rev-list --tags --max-count=1))
+VERSION=7.0.0
+BUILD:=$(shell git rev-parse HEAD)

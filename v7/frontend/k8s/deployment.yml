@@ -1,0 +1,24 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mandelbrot-frontend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mandelbrot
+        component: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: mandelbrot-frontend:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MANDELBROT_BACKENDSERVER
+          value: mandelbrot-backend.default.svc.cluster.local:28000
+        - name: MANDELBROT_REDISSERVER
+          value: mandelbrot-redis-master.default.svc.cluster.local:6379

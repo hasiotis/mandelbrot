@@ -1,0 +1,17 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mandelbrot-redis-master
+  labels:
+    app: redis
+    role: master
+    tier: backend
+spec:
+  ports:
+  - port: 6379
+    targetPort: 6379
+  selector:
+    app: redis
+    role: master
+    tier: backend
