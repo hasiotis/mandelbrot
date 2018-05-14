@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mandelbrot-backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: backend
+        app: mandelbrot
+        component: backend
+    spec:
+      hostname: backend
+      containers:
+      - name: backend
+        image: mandelbrot-backend:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 28000

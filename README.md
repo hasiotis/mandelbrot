@@ -10,3 +10,4 @@
 
 * Version 6 [Configuration](v6/README.md)
 * Version 7 [Kubernetes](v7/README.md)
+* Version 8 [Ready and live](v8/README.md)

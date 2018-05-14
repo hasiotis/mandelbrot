@@ -1,0 +1,72 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mandelbrot-service
+spec:
+  type: NodePort
+  selector:
+    app: mandelbrot
+    component: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort: 32400
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mandelbrot-backend
+spec:
+  selector:
+    app: mandelbrot
+    component: backend
+  ports:
+    - protocol: TCP
+      port: 28000
+      targetPort: 28000
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mandelbrot-frontend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mandelbrot
+        component: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: mandelbrot-frontend:v6.0.0-4-ge51bd3e
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MANDELBROT_BACKENDSERVER
+          value: mandelbrot-backend.default.svc.cluster.local:28000
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mandelbrot-backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: backend
+        app: mandelbrot
+        component: backend
+    spec:
+      hostname: backend
+      containers:
+      - name: backend
+        image: mandelbrot-backend:v6.0.0-4-ge51bd3e
+        ports:
+        - containerPort: 28000

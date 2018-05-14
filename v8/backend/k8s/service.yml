@@ -1,0 +1,13 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mandelbrot-backend
+spec:
+  selector:
+    app: mandelbrot
+    component: backend
+  ports:
+    - protocol: TCP
+      port: 28000
+      targetPort: 28000
