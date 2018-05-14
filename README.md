@@ -5,3 +5,5 @@
 * Version 3 [The web era](v3/README.md)
 * Version 4 [Switch to client server model](v4/README.md)
 * Version 5 [Add a caching layer](v5/README.md)
+
+* Version 6 [](v6/README.md)
