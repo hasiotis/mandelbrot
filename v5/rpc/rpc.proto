@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package rpc;
+
+service MandelService {
+  rpc ComputeMandel (BlockRequest) returns (BlockReply) {}
+}
+
+message ComplexPoint {
+  double x = 1;
+  double y = 2;
+}
+
+message BlockRequest {
+  ComplexPoint pStart  = 1;
+  ComplexPoint pEnd  = 2;
+  int32  points = 3;
+  int32  maxIters = 4;
+  int32  blockSize = 5;
+  int32  xBlock = 6;
+  int32  yBlock = 7;
+}
+
+message BlockReply {
+  repeated int32 results = 10;
+}
