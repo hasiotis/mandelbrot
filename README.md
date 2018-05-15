@@ -1,4 +1,4 @@
-## A CI/CD journey through time
+## Creating a mess
 
 * Version 1 [The DOS era](v1/README.md)
 * Version 2 [The big server era](v2/README.md)
