@@ -2,17 +2,14 @@ Build it
 ----------
 
 ```
-go get -insecure gitlab.internal.upstreamsystems.com/devops/mandelbrot
-cd $GOPATH/src/gitlab.internal.upstreamsystems.com/devops/mandelbrot
-git checkout release-7.0
+go get -d github.com/hasiotis/mandelbrot/v7/...
+cd $GOPATH/src/github.com/hasiotis/mandelbrot/v7
 make tools
+make
 ```
 
 Install a local kubernetes (minikube)
 -------------------------------------
-
-Just use the following [link]: https://upstreamsystems.atlassian.net/wiki/spaces/DEVOPS/pages/142671878/MiniKube].
-BUT use the following *start* command:
 
 ```
 minikube start --memory=4096 --cpus=2 --insecure-registry=localhost:5000
