@@ -7,7 +7,6 @@ cd $GOPATH/src/github.com/hasiotis/mandelbrot/v8
 make tools
 make
 ```
-```
 
 Install a local kubernetes (minikube)
 -------------------------------------
